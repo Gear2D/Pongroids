@@ -1,0 +1,24 @@
+# defines the pong ball
+attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid
+renderer.surfaces: roid=asteroid16.png
+roid.position.z: 10
+roid.alpha: 0.5
+
+# colliding attr
+collider.ignore: asteroid wall
+collider.tag: asteroid
+
+# spatial parameters
+x: 0
+y: 0
+w: 16
+h: 16
+
+x.speed: 0
+y.speed: 0
+
+# test mass (dynamics)
+dynamics.mass: 50
+
+asteroid.type: medium
+asteroid.fragmentation: 8

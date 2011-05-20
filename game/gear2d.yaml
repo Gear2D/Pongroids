@@ -1,0 +1,17 @@
+# component path. Files in these path should be organized by families
+compath: com /usr/local/lib/gear2d/component
+
+# where to load objects (relative to where the engine was run)
+objpath: objects/
+
+# Image path
+imgpath: img/
+
+# separated by space
+compreload: dynamics/rigidbody2d collider/collider2d spatial/space2d kinetics/kinetic2d keyboard/keyboard
+
+# initial objects
+objects: background asteroid32 asteroid32 asteroid32 asteroid32 floor ceil barleft barright pong
+
+renderer.w: 640
+renderer.h: 480

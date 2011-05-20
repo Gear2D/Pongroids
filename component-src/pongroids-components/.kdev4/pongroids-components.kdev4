@@ -1,0 +1,15 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00(\x00p\x00o\x00n\x00g\x00r\x00o\x00i\x00d\x00s\x00-\x00c\x00o\x00m\x00p\x00o\x00n\x00e\x00n\x00t\x00s)
+
+[CMake]
+BuildDirs=/home/leo/Project/Pongroids/component-src/pongroids-components/build
+CMakeDir=/usr/share/cmake/Modules
+Current CMake Binary=file:///usr/bin/cmake
+CurrentBuildDir=file:///home/leo/Project/Pongroids/component-src/pongroids-components/build
+CurrentBuildType=Debug
+CurrentInstallDir=.
+Extra Arguments=
+ProjectRootRelative=./
+
+[MakeBuilder]
+Number Of Jobs=1

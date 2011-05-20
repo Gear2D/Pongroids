@@ -1,0 +1,9 @@
+# Defines the ceil
+attach: dynamics/rigidbody2d
+x: 0
+y: -32
+w: 640
+h: 32
+dynamics.kinetic: 1
+dynamics.mass: 9990
+collider.tag: wall

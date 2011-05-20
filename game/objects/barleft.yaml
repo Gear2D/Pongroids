@@ -1,0 +1,28 @@
+# attach information
+attach: dynamics/rigidbody2d renderer/renderer controller/charactercontroller
+
+# collider things
+collider.tag: bar
+collider.ignore: asteroid
+
+# surfaces to render
+renderer.surfaces: bar=bar.bmp
+bar.alpha: 1.0
+bar.position.x: 56
+bar.bind: true
+
+# controller things
+controller.vertical+: s
+controller.vertical-: w
+controller.horizontal.accel: 0
+controller.vertical.accel: 200
+controller.vertical.deaccel: 10
+
+# spatial things
+x: -56
+y: 208
+w: 64
+h: 64
+
+# dynamics things
+dynamics.mass: 999
