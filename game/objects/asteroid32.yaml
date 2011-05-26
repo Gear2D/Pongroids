@@ -4,7 +4,7 @@ renderer.surfaces: roid=asteroid32.png
 roid.position.z: 10
 
 # colliding attr
-collider.ignore: asteroid wall
+collider.ignore: asteroid wall limit rightfield leftfield
 collider.tag: asteroid
 
 # spatial parameters
@@ -17,7 +17,7 @@ x.speed: 2
 y.speed: 2
 
 # test mass (dynamics)
-dynamics.mass: 100
+dynamics.mass: 300
 
 # asteroid things
 asteroid.type: big

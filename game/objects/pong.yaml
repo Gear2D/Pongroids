@@ -1,13 +1,13 @@
-# yeah I am a cheater!
-
-
 # defines the pong ball
 attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer pong/pong
 renderer.surfaces: pong=pong.bmp grid=grid.png
+collider.ignore: rightfield leftfield
+
+
 
 # spatial parameters
-x: 312
-y: 232
+x: 140
+y: 236
 w: 8
 h: 8
 
@@ -16,9 +16,14 @@ grid.position.x: -200
 grid.position.y: -200
 grid.position.z: -1
 
+pong.position.z: 10
+
 # test speed (kinetics)
-x.speed: 110
-y.speed: -45
+x.speed: 0
+y.speed: 0
+y.speed.max: 100
 
 # test mass (dynamics)
 dynamics.mass: 1
+
+

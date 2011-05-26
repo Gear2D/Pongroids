@@ -5,7 +5,7 @@ roid.position.z: 10
 roid.alpha: 0.5
 
 # colliding attr
-collider.ignore: asteroid wall
+collider.ignore: asteroid wall limit rightfield leftfield
 collider.tag: asteroid
 
 # spatial parameters
@@ -18,7 +18,7 @@ x.speed: 0
 y.speed: 0
 
 # test mass (dynamics)
-dynamics.mass: 50
+dynamics.mass: 150
 
 asteroid.type: medium
 asteroid.fragmentation: 8

@@ -40,6 +40,7 @@ class asteroid : public component::base {
 		asteroidtype t;
 		int frags;
 		bool spawning;
+		float timeleft;
 		
 	private:
 		void explode() {
@@ -83,7 +84,7 @@ class asteroid : public component::base {
 		virtual component::type type() { return "asteroid"; }
 		virtual std::string depends() { return "spatial collider dynamics kinetics renderer"; }
 		
-		virtual void handle(parameterbase::id pid, component::base * lastwrite) {
+		virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
 			if (pid == "collider.collision") {
 				component::base * other = read<component::base *>("collider.collision");
 				if (lastwrite == this) return;
@@ -108,6 +109,9 @@ class asteroid : public component::base {
 				write("x.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
 				write("y.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
 			}
+			if (t == small) {
+				timeleft = 5.0f;
+			}
 		}
 		
 		virtual void update(float dt) {
@@ -123,6 +127,12 @@ class asteroid : public component::base {
 					if (alpha >= 1.0f) spawning = false;
 					write("roid.alpha", alpha);
 				}
+			}
+			if (t == small) {
+				timeleft -= dt;
+				clamp(timeleft, 0.0f, 5.0f);
+				write("roid.alpha", timeleft / 5.0f);
+				if (timeleft <= 0.0f) destroy();
 			}
 		}
 };

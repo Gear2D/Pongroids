@@ -1,9 +1,10 @@
 # Defines the floor
 attach: dynamics/rigidbody2d
-x: 0
-y: 480
-w: 640
-h: 32
+x: 640
+y: 0
+w: 32
+h: 480
 dynamics.cinematic: 1
 dynamics.mass: 9990
-collider.tag: wall
+collider.tag: limit
+collider.ignore: bar asteroid

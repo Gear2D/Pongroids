@@ -1,0 +1,14 @@
+attach: dynamics/rigidbody2d renderer/renderer
+
+renderer.surfaces: leftfield=leftfield.bmp
+
+leftfield.alpha: 0.2
+
+x: 312
+y: 0
+w: 8
+h: 480
+
+collider.tag: leftfield
+dynamics.cinematic: 1
+dynamics.mass: 99999
