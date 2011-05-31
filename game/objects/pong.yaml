@@ -19,9 +19,9 @@ grid.position.z: -1
 pong.position.z: 10
 
 # test speed (kinetics)
-x.speed: 0
-y.speed: 0
-y.speed.max: 100
+x.speed: 200
+y.speed: 100
+x.speed.max: 200
 
 # test mass (dynamics)
 dynamics.mass: 1

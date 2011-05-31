@@ -1,0 +1,45 @@
+attach: renderer/renderer keyboard/keyboard menu/singleselect entrance/entrance
+
+# keyboard things
+keyboard.interested: up down return
+
+# things that are purely surfaces
+renderer.surfaces: entranceimg=entrance.png
+renderer.texts: newgame exitgame
+
+# menu things
+menu.options: newgame exitgame
+menu.focus: newgame
+menu.circular: 1
+
+newgame.order: 0
+newgame.text: New Game
+newgame.font.r: 1
+newgame.font.g: 1
+newgame.font.b: 1
+newgame.font: 04b_03.ttf
+newgame.font.size: 38
+newgame.position.x: 350
+newgame.position.y: 374
+newgame.position.z: 100
+exitgame.alpha: 0.5
+
+
+exitgame.order: 1
+exitgame.text: Exit Game
+exitgame.font.r: 1
+exitgame.font.g: 1
+exitgame.font.b: 1
+exitgame.font: 04b_03.ttf
+exitgame.font.size: 38
+exitgame.position.x: 350
+exitgame.position.y: 410
+exitgame.position.z: 100
+exitgame.alpha: 0.5
+
+
+
+# main scene background
+mainbg.position.z: 10
+
+# text things for new game

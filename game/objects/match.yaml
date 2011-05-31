@@ -7,20 +7,22 @@ renderer.texts: score1 score2
 
 score1.font: 04b_03b.ttf
 score1.font.size: 68
-score1.font.r: 1
-score1.font.g: 1
-score1.font.b: 1
+score1.font.r: 0.19
+score1.font.g: 0.58
+score1.font.b: 0.72
 score1.position.x: 200
 score1.position.y: 0
 score1.bind: 0
 score1.text: 0
+score1.alpha: 0.5
 
 score2.font: 04b_03b.ttf
 score2.font.size: 68
-score2.font.r: 1
-score2.font.g: 1
-score2.font.b: 1
+score2.font.r: 0.58
+score2.font.g: 0.72
+score2.font.b: 0.19
 score2.position.x: 400
 score2.position.y: 0
 score2.bind: 0
 score2.text: 0
+score2.alpha: 0.5

@@ -14,8 +14,8 @@ controller.vertical+: down
 controller.vertical-: up
 controller.horizontal+: right
 controller.horizontal-: left
-controller.horizontal.accel: 500
-controller.vertical.accel: 500
+controller.horizontal.accel: 1000
+controller.vertical.accel: 1000
 controller.vertical.deaccel: 300
 controller.horizontal.deaccel: 300
 

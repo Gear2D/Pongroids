@@ -14,8 +14,7 @@ muspath: mus/
 compreload: render/rendergl dynamics/rigidbody2d collider/collider2d spatial/space2d kinetics/kinetic2d keyboard/keyboard
 
 # initial objects
-# objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
-objects: background ceil floor left right pong asteroid32 asteroid32 entrance
+objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
 
 renderer.w: 640
 renderer.h: 480
