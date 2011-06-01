@@ -99,8 +99,8 @@ class asteroid : public component::base {
 			t = eval(sig["asteroid.type"], small);
 			frags = eval(sig["asteroid.fragmentation"], 2);
 			hook("collider.collision");
-			int w = rand() % read<int>("renderer.w"); cout << w << endl;
-			int h = rand() % read<int>("renderer.h"); cout << h << endl;
+			int w = rand() % read<int>("renderer.w"); 
+			int h = rand() % read<int>("renderer.h");
 			write<float>("x", w);
 			write<float>("y", h);
 			if (t == big) {

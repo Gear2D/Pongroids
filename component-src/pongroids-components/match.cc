@@ -50,7 +50,7 @@ class match : public component::base {
 		virtual component::family family() { return "match"; }
 		virtual component::type type() { return "match"; }
 		virtual void handle(parameterbase::id pid, component::base * last, object::id pidowner) {
-			// pong collided with leftwall
+			if (pid != "collider.collision") return;
 			if (pidowner == leftwall->owner) {
 				p2.score++;
 				write("score2.text", lexical_cast<std::string>(p2.score));
@@ -73,6 +73,7 @@ class match : public component::base {
 			
 			oid = spawn("pong");
 			pong = oid->component("spatial");
+			placepong(140, 236);
 		}
 		
 		virtual void update(float dt) {
