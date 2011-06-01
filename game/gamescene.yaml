@@ -1,5 +1,5 @@
 # component path. Files in these path should be organized by families
-compath: com /usr/local/lib/gear2d/component
+compath: com,/usr/local/lib/gear2d/component,C:\\Program Files (x86)\\gear2d\\lib\\gear2d\\component
 
 # where to load objects (relative to where the engine was run)
 objpath: objects/
