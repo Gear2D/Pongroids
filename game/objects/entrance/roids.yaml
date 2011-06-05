@@ -1,0 +1,20 @@
+# This is the "roids" text
+
+attach: renderer/renderer kinetics/kinetic2d collider/collider2d dynamics/rigidbody2d
+
+renderer.texts: roids
+
+x: 310
+y: 50
+w: 250
+h: 60
+x.speed: -10
+
+roids.text: Roids
+roids.font.r: 0.58
+roids.font.g: 0.72
+roids.font.b: 0.19
+roids.font: origa___.ttf
+roids.font.size: 60
+roids.position.z: 100
+roids.alpha: 0.5
