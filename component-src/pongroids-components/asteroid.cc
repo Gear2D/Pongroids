@@ -73,6 +73,7 @@ class asteroid : public component::base {
 			
 			if (t == big) {
 				object::id otherbig = spawn("asteroid32");
+				write("explode.playing", true);
 // 				otherbig->component("asteroid")->write<float>("x", -31);
 // 				otherbig->component("asteroid")->write<float>("y.speed", 10.0f);
 			}

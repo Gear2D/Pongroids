@@ -15,7 +15,7 @@ compreload: render/rendergl dynamics/rigidbody2d collider/collider2d spatial/spa
 
 # initial objects
 # objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
-objects: background ceil floor left right pong asteroid32 asteroid32 entrance
+objects: background ceil floor left right pong asteroid32 asteroid32 entrance entrance/pong entrance/roids
 
 renderer.w: 640
 renderer.h: 480

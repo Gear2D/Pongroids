@@ -1,11 +1,14 @@
-attach: renderer/renderer keyboard/keyboard menu/singleselect entrance/entrance
+attach: renderer/renderer keyboard/keyboard menu/singleselect audiosource/audiosource entrance/entrance
+
+# music things
+audiosource.music: theme.mp3
 
 # keyboard things
 keyboard.interested: up down return
 
 # things that are purely surfaces
 renderer.surfaces: entranceimg=entrance.png
-renderer.texts: newgame exitgame
+renderer.texts: newgame exitgame pong roids
 
 # menu things
 menu.options: newgame exitgame
@@ -17,12 +20,12 @@ newgame.text: New Game
 newgame.font.r: 1
 newgame.font.g: 1
 newgame.font.b: 1
-newgame.font: 04b_03.ttf
-newgame.font.size: 38
+newgame.font: origa___.ttf
+newgame.font.size: 18
 newgame.position.x: 350
-newgame.position.y: 374
+newgame.position.y: 380
 newgame.position.z: 100
-exitgame.alpha: 0.5
+newgame.alpha: 0.5
 
 
 exitgame.order: 1
@@ -30,8 +33,8 @@ exitgame.text: Exit Game
 exitgame.font.r: 1
 exitgame.font.g: 1
 exitgame.font.b: 1
-exitgame.font: 04b_03.ttf
-exitgame.font.size: 38
+exitgame.font: origa___.ttf
+exitgame.font.size: 18
 exitgame.position.x: 350
 exitgame.position.y: 410
 exitgame.position.z: 100

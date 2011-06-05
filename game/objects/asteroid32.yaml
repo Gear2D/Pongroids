@@ -1,5 +1,5 @@
 # defines the pong ball
-attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid
+attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid audiosource/audiosource
 renderer.surfaces: roid=asteroid32.png
 roid.position.z: 10
 
@@ -22,3 +22,5 @@ dynamics.mass: 300
 # asteroid things
 asteroid.type: big
 asteroid.fragmentation: 4
+
+audiosource.sounds: explode=explode.wav
