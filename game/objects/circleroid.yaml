@@ -1,0 +1,34 @@
+# defines the pong ball
+attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer animation/spritesheet controller/moveto
+renderer.surfaces: roid=circleroid.bmp
+
+roid.position.z: 10
+roid.clip.w: 32
+roid.clip.h: 32
+
+# list of things to animate/use as spritesheet
+animations: roid
+
+roid.animation.frame.size: 32
+roid.animation.speed: 0.2
+roid.animation.play: 1
+roid.animation.wrap: 1
+
+controller.target.x: 100
+controller.target.y: 300
+
+# colliding attr
+collider.ignore: asteroid rightfield leftfield
+collider.tag: circleroid
+
+# spatial parameters
+x: 100
+y: 200
+w: 32
+h: 32
+
+x.speed: 2
+y.speed: 2
+
+# test mass (dynamics)
+dynamics.mass: 3

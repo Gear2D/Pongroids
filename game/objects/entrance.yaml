@@ -1,7 +1,7 @@
 attach: renderer/renderer keyboard/keyboard menu/singleselect audiosource/audiosource entrance/entrance
 
 # music things
-audiosource.music: theme.mp3
+# audiosource.music: theme.mp3
 
 # keyboard things
 keyboard.interested: up down return

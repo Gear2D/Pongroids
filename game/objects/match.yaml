@@ -1,6 +1,6 @@
 # match: Rules for the game
 attach: renderer/renderer audiosource/audiosource match/match 
-audiosource.music: Rocket.mp3
+# audiosource.music: Rocket.mp3
 
 #texts
 renderer.texts: score1 score2

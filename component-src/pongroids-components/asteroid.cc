@@ -83,7 +83,7 @@ class asteroid : public component::base {
 		asteroid() : t(none), spawning(false) { }
 		virtual component::family family() { return "asteroid"; }
 		virtual component::type type() { return "asteroid"; }
-		virtual std::string depends() { return "spatial collider dynamics kinetics renderer"; }
+		virtual std::string depends() { return "spatial collider dynamics kinetics renderer/renderer"; }
 		
 		virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
 			if (pid == "collider.collision") {
@@ -102,8 +102,8 @@ class asteroid : public component::base {
 			hook("collider.collision");
 			int w = rand() % read<int>("renderer.w"); 
 			int h = rand() % read<int>("renderer.h");
-			write<float>("x", w);
-			write<float>("y", h);
+			write<float>("x", w*1.0f);
+			write<float>("y", h*1.0f);
 			if (t == big) {
 				write("roid.alpha", 0.0f);
 				spawning = true;

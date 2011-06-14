@@ -7,4 +7,4 @@ h: 480
 dynamics.cinematic: 1
 dynamics.mass: 9990
 collider.tag: limit
-collider.ignore: bar asteroid
+collider.ignore: bar asteroid circleroid

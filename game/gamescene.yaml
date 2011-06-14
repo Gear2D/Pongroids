@@ -11,10 +11,10 @@ sndpath: snd/
 muspath: mus/
 
 # separated by space
-compreload: render/rendergl dynamics/rigidbody2d collider/collider2d spatial/space2d kinetics/kinetic2d keyboard/keyboard
+compreload: dynamics/rigidbody2d collider/collider2d spatial/space2d kinetics/kinetic2d keyboard/keyboard renderer/renderer
 
 # initial objects
-objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
+objects: background floor ceil barleft barright leftfield rightfield match asteroid32
 
 renderer.w: 640
 renderer.h: 480
