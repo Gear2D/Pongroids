@@ -1,0 +1,38 @@
+attach: spatial/space2d renderer/renderer keyboard/keyboard menu/singleselect
+
+# spatial things
+x: 350
+y: 380
+z: 100;
+
+# keyboard things
+renderer.texts: singleplayer versus
+
+# menu things
+menu.options: singleplayer versus
+menu.focus: singleplayer
+menu.circular: 1
+
+singleplayer.order: 0
+singleplayer.text: Single Player
+singleplayer.font.r: 1
+singleplayer.font.g: 1
+singleplayer.font.b: 1
+singleplayer.font: origa___.ttf
+singleplayer.font.size: 18
+singleplayer.position.x: 0
+singleplayer.position.y: 0
+singleplayer.alpha: 0.5
+
+
+versus.order: 1
+versus.text: Versus Game
+versus.font.r: 1
+versus.font.g: 1
+versus.font.b: 1
+versus.font: origa___.ttf
+versus.font.size: 18
+versus.position.x: 0
+versus.position.y: 30
+versus.position.z: 100
+versus.alpha: 0.5

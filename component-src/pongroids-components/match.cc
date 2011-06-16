@@ -22,8 +22,6 @@ class match : public component::base {
 				}
 		};
 	private:
-		/* Eu nao sou rico nao.
-		 * Nao me rejeite. */
 		component::base * leftwall;
 		component::base * rightwall;
 		component::base * leftfield;

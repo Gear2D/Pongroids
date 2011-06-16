@@ -1,3 +1,6 @@
-attach: renderer/renderer
-renderer.surfaces: background=background.png
+attach: renderer/renderer kinetics/kinetic2d
+renderer.surfaces: background=goingtospace.png
 background.position.z: -2
+x: 0
+y.speed: -10.0
+# y: 8880

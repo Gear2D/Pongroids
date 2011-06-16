@@ -1,0 +1,37 @@
+attach: spatial/space2d renderer/renderer kinetics/kinetic2d menu/singleselect
+
+# spatial things
+x: 350
+y: 380
+z: 100;
+
+renderer.texts: newgame exitgame
+
+# menu things
+menu.options: newgame exitgame
+menu.focus: newgame
+menu.circular: 1
+
+newgame.order: 0
+newgame.text: New Game
+newgame.font.r: 1
+newgame.font.g: 1
+newgame.font.b: 1
+newgame.font: origa___.ttf
+newgame.font.size: 18
+newgame.position.x: 0
+newgame.position.y: 0
+newgame.alpha: 0.5
+
+
+exitgame.order: 1
+exitgame.text: Exit Game
+exitgame.font.r: 1
+exitgame.font.g: 1
+exitgame.font.b: 1
+exitgame.font: origa___.ttf
+exitgame.font.size: 18
+exitgame.position.x: 0
+exitgame.position.y: 30
+exitgame.position.z: 100
+exitgame.alpha: 0.5
