@@ -1,0 +1,4 @@
+When compiling from source code (uder component-src/pongroids-components)
+make sure you are doing it inside the build/ folder, so the install happens
+in the right place, or use -DCMAKE_INSTALL_PREFIX=/path/to/where/the/game/is/com
+when performing cmake ../
