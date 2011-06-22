@@ -43,7 +43,12 @@ class entrance : public component::base  {
 				
 				if (menufocus == newgamemenu) {
 					if (newgamemenu->raw<string>("menu.focus") == "singleplayer") {
-						load("gamescene");
+						load("singleplayer");
+						return;
+					}
+					
+					if (newgamemenu->raw<string>("menu.focus") == "versus") {
+						load("versus");
 						return;
 					}
 				}

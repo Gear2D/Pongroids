@@ -10,6 +10,7 @@ link_directories(${GEAR2D_LINK_DIR})
 add_library(pong SHARED pong.cc)
 add_library(asteroid SHARED asteroid.cc)
 add_library(bar SHARED bar.cc)
+add_library(aibar SHARED aibar.cc)
 add_library(match SHARED match.cc)
 add_library(entrance SHARED entrance.cc)
 
@@ -23,6 +24,9 @@ install(TARGETS pong
 install(TARGETS bar
 		 DESTINATION ../../../game/com/bar)
 
+install(TARGETS aibar
+		 DESTINATION ../../../game/com/bar)
+
 install(TARGETS match
 		 DESTINATION ../../../game/com/match)
 
@@ -31,6 +35,7 @@ install(TARGETS entrance
 
 target_link_libraries(pong gear2d)
 target_link_libraries(bar gear2d)
+target_link_libraries(aibar gear2d)
 target_link_libraries(asteroid gear2d)
 target_link_libraries(match gear2d)
 target_link_libraries(entrance gear2d)

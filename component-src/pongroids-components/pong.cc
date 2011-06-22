@@ -8,7 +8,7 @@ using namespace gear2d;
 class pong : public component::base {
 	public:
 		virtual component::family family() { return "pong"; }
-		virtual component::type type() { return "type"; }
+		virtual component::type type() { return "pong"; }
 		virtual string depends() { return "spatial kinetics dynamics"; }
 		virtual void setup(object::signature & sig) {
 			hook("collider.collision");

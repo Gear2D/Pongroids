@@ -10,14 +10,20 @@ using namespace gear2d;
 
 class bar : public component::base {
 	public:
+		bar();
 		virtual component::family family() { return "bar"; }
 		virtual component::type type() { return "bar"; }
 		virtual std::string depends() { return "collider audiosource"; }
 		virtual void handle(parameterbase::id pid, component::base * last, object::id pidowner);
 		virtual void setup(object::signature & sig);
 		virtual void update(float dt);
+		
+	private:
+		object::id pong;
 };
 
+bar::bar() : pong(0) {
+}
 
 void bar::handle(parameterbase::id pid, component::base* last, object::id pidowner) {
 	if (pid == "collider.collision") {
@@ -31,7 +37,6 @@ void bar::setup(object::signature & sig) {
 }
 
 void bar::update(float dt) {
-	
 }
 
 

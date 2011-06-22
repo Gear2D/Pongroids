@@ -1,0 +1,32 @@
+# attach information
+attach: dynamics/rigidbody2d renderer/renderer controller/charactercontroller audiosource/audiosource bar/aibar
+
+# collider things
+collider.tag: bar
+collider.ignore: asteroid rightfield
+
+# surfaces to render
+renderer.surfaces: bar=barright.bmp
+bar.alpha: 1.0
+
+# controller things
+controller.horizontal.accel: 1000
+controller.vertical.accel: 1000
+controller.vertical.deaccel: 300
+controller.horizontal.deaccel: 300
+
+# audio things
+audiosource.sounds: blip=ping.wav
+
+# spatial things
+x: 632
+y: 208
+w: 8
+h: 64
+
+# dynamics things
+dynamics.mass: 10
+
+# kinetic things
+x.speed.max: 200
+y.speed.max: 200
