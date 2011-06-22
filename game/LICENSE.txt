@@ -1,0 +1,6 @@
+ - Components and game yaml files are under LGPL3 license: http://www.gnu.org/licenses/lgpl-3.0.txt
+ - mus/Edward_Shallow_-_01_-_Inside_Leaving.ogg is released under
+   Attribution-Noncommercial-Share Alike 3.0 United States License,
+   http://creativecommons.org/licenses/by-nc-sa/3.0/us/ and is a reencode
+   from mp3 to Ogg Vorbis format
+ - Images are released under GPL3: http://www.gnu.org/licenses/gpl-3.0.txt
