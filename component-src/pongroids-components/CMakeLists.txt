@@ -3,7 +3,14 @@ project(pongroids-components)
 set(CMAKE_INSTALL_PREFIX ./)
 
 find_path(GEAR2D_INCLUDE_DIR gear2d/gear2d.h)
-find_path(GEAR2D_LINK_DIR GLOB libgear2d.*)
+if (WIN32)
+	find_path(GEAR2D_LINK_DIR libgear2d.dll)
+elseif (APPLE)
+	find_path(GEAR2D_LINK_DIR libgear2d.dylib)
+else ()
+	find_path(GEAR2D_LINK_DIR libgear2d.so)
+endif(WIN32)
+
 include_directories(${GEAR2D_INCLUDE_DIR})
 link_directories(${GEAR2D_LINK_DIR})
 
