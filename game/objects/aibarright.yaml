@@ -10,6 +10,11 @@ renderer.surfaces: bar=barright.bmp
 bar.alpha: 1.0
 
 # controller things
+controller.vertical+: undefined
+controller.vertical-: undefined
+controller.horizontal+: undefined
+controller.horizontal-: undefined
+
 controller.horizontal.accel: 1000
 controller.vertical.accel: 1000
 controller.vertical.deaccel: 300
