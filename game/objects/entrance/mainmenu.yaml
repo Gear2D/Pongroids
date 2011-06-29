@@ -1,4 +1,4 @@
-attach: spatial/space2d renderer/renderer kinetics/kinetic2d menu/singleselect
+attach: spatial/space2d renderer/renderer kinematics/kinematic2d menu/singleselect
 
 # spatial things
 x: 350

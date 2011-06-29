@@ -31,6 +31,6 @@ audiosource.sounds: blip=pong.wav
 # dynamics things
 dynamics.mass: 10
 
-# kinetic things
+# kinematic things
 x.speed.max: 200
 y.speed.max: 200

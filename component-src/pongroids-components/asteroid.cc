@@ -83,7 +83,7 @@ class asteroid : public component::base {
 		asteroid() : t(none), spawning(false) { }
 		virtual component::family family() { return "asteroid"; }
 		virtual component::type type() { return "asteroid"; }
-		virtual std::string depends() { return "spatial collider dynamics kinetics renderer/renderer"; }
+		virtual std::string depends() { return "spatial collider dynamics kinematics renderer/renderer"; }
 		
 		virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
 			if (pid == "collider.collision") {

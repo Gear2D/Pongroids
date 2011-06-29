@@ -1,5 +1,5 @@
 # defines the pong ball
-attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer pong/pong
+attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer pong/pong
 renderer.surfaces: pong=pong.bmp grid=grid.png
 collider.ignore: rightfield leftfield
 
@@ -18,7 +18,7 @@ grid.position.z: -1
 
 pong.position.z: 10
 
-# test speed (kinetics)
+# test speed (kinematics)
 x.speed: 200
 y.speed: 100
 x.speed.max: 200

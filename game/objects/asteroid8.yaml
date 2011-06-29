@@ -1,5 +1,5 @@
 # defines the pong ball
-attach: spatial/space2d kinetics/kinetic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid
+attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid
 renderer.surfaces: roid=asteroid8.png
 
 roid.position.z: 10
