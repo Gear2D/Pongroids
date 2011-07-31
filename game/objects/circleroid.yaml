@@ -14,8 +14,8 @@ roid.animation.speed: 0.2
 roid.animation.play: 1
 roid.animation.wrap: 1
 
-controller.target.x: 100
-controller.target.y: 300
+controller.target.x: 320
+controller.target.y: 240
 
 # colliding attr
 collider.ignore: asteroid rightfield leftfield
@@ -29,6 +29,8 @@ h: 32
 
 x.speed: 2
 y.speed: 2
+x.speed.max: 300
+y.speed.max: 300
 
 # test mass (dynamics)
 dynamics.mass: 3

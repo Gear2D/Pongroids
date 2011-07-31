@@ -22,6 +22,7 @@ pong.position.z: 10
 x.speed: 200
 y.speed: 100
 x.speed.max: 200
+y.speed.max: 300
 
 # test mass (dynamics)
 dynamics.mass: 1

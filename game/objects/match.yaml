@@ -15,6 +15,7 @@ score1.position.y: 0
 score1.bind: 0
 score1.text: 0
 score1.alpha: 0.5
+score1.clip.w: 100
 
 score2.font: 04b_03b.ttf
 score2.font.size: 68
@@ -26,3 +27,4 @@ score2.position.y: 0
 score2.bind: 0
 score2.text: 0
 score2.alpha: 0.5
+score2.clip.w: 100

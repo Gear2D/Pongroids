@@ -4,6 +4,6 @@ x: 0
 y: -32
 w: 640
 h: 32
-dynamics.cinematic: 1
+dynamics.kinematic: 1
 dynamics.mass: 9990
 collider.tag: wall
