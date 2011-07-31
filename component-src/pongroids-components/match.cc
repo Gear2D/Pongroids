@@ -10,6 +10,8 @@
 #include <gear2d/gear2d.h>
 using namespace gear2d;
 
+#include <cstdio>
+
 class match : public component::base {
 	private:
 		class player {
@@ -27,6 +29,7 @@ class match : public component::base {
 		component::base * leftfield;
 		component::base * rightfield;
 		component::base * pong;
+		component::base * background;
 		player p1;
 		player p2;
 		
@@ -44,6 +47,7 @@ class match : public component::base {
 		, leftfield(0)
 		, rightfield(0)
 		, pong(0)
+		, background(0)
 		{
 			
 		}
@@ -75,10 +79,16 @@ class match : public component::base {
 			pong = oid->component("spatial");
 			placepong(140, 236);
 			
+			oid = locate("background");
+			background = oid->component("spatial");
+			
 			spawn("asteroid32");
 		}
 		
 		virtual void update(float dt) {
+			if (background->read<int>("background.clip.h") + background->read<float>("y") - 480 <= 0) {
+				background->write<float>("y.speed", 0);
+			}
 		}
 };
 

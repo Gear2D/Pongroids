@@ -9,7 +9,7 @@ class pong : public component::base {
 	public:
 		virtual component::family family() { return "pong"; }
 		virtual component::type type() { return "pong"; }
-		virtual string depends() { return "spatial kinematics dynamics"; }
+		virtual string depends() { return "spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d"; }
 		virtual void setup(object::signature & sig) {
 			hook("collider.collision");
 		}

@@ -42,6 +42,8 @@ class asteroid : public component::base {
 		bool spawning;
 		float timeleft;
 		
+		static int asteroidno;
+		
 	private:
 		void explode() {
 			std::string target;
@@ -58,6 +60,7 @@ class asteroid : public component::base {
 			float increment = 360.0f/frags;
 			
 			for (int i = 0; i < frags; i++) {
+				if (asteroidno >= 60) break;
 				obj = spawn(target);
 				com = (asteroid *) obj->component("asteroid");
 				if (com == 0) continue;
@@ -72,7 +75,7 @@ class asteroid : public component::base {
 			}
 			
 			if (t == big) {
-				object::id otherbig = spawn("asteroid32");
+				object::id otherbig = spawn(owner->name());
 				write("explode.playing", true);
 // 				otherbig->component("asteroid")->write<float>("x", -31);
 // 				otherbig->component("asteroid")->write<float>("y.speed", 10.0f);
@@ -83,7 +86,7 @@ class asteroid : public component::base {
 		asteroid() : t(none), spawning(false) { }
 		virtual component::family family() { return "asteroid"; }
 		virtual component::type type() { return "asteroid"; }
-		virtual std::string depends() { return "spatial collider dynamics kinematics renderer/renderer"; }
+		virtual std::string depends() { return "spatial/space2d collider/collider2d dynamics/rigidbody2d kinematics/kinematic2d renderer/renderer"; }
 		
 		virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
 			if (pid == "collider.collision") {
@@ -113,6 +116,7 @@ class asteroid : public component::base {
 			if (t == small) {
 				timeleft = 5.0f;
 			}
+			asteroidno++;
 		}
 		
 		virtual void update(float dt) {
@@ -136,7 +140,13 @@ class asteroid : public component::base {
 				if (timeleft <= 0.0f) destroy();
 			}
 		}
+		
+		virtual ~asteroid() {
+			asteroidno--;
+		}
 };
+
+int asteroid::asteroidno = 0;
 
 extern "C" {
 	component::base * build() { return new asteroid; }

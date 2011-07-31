@@ -13,7 +13,7 @@ class aibar : public component::base {
 		aibar();
 		virtual component::family family() { return "bar"; }
 		virtual component::type type() { return "aibar"; }
-		virtual std::string depends() { return "collider audiosource"; }
+		virtual std::string depends() { return "collider/collider2d audiosource"; }
 		virtual void handle(parameterbase::id pid, component::base * last, object::id pidowner);
 		virtual void setup(object::signature & sig);
 		virtual void update(float dt);
