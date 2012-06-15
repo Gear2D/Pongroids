@@ -22,12 +22,19 @@ Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
 Arguments=
+Debugger Shell=
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
+Display Demangle Names=true
+Display Static Members=false
 EnvironmentGroup=default
 Executable=gear2d
 External Terminal=konsole --noclose --workdir %workdir -e %exe
+GDB Path=
 Project Target=
+Remote GDB Config Script=
+Remote GDB Run Script=
+Remote GDB Shell Script=
 Use External Terminal=false
 Working Directory=file:///home/leo/Project/Pongroids/game
 isExecutable=true

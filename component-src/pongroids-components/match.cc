@@ -55,13 +55,18 @@ class match : public component::base {
 		virtual component::type type() { return "match"; }
 		virtual void handle(parameterbase::id pid, component::base * last, object::id pidowner) {
 			if (pid != "collider.collision") return;
+			char score[5];
 			if (pidowner == leftwall->owner) {
 				p2.score++;
-				write("score2.text", lexical_cast<std::string>(p2.score));
+				sprintf(score, "%d", p2.score);
+				write("score2.text", std::string(score));
+				add("score2.zoom", 0.1f);
 				placepong(140, 236);
 			} else if (pidowner == rightwall->owner) {
 				p1.score++;
-				write("score1.text", lexical_cast<std::string>(p1.score));
+				sprintf(score, "%d", p1.score);
+				write("score1.text", std::string(score));
+				add("score1.zoom", 0.1f);
 				placepong(500, 236);
 			}
 		}

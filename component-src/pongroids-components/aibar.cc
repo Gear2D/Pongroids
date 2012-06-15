@@ -34,7 +34,6 @@ void aibar::handle(parameterbase::id pid, component::base* last, object::id pido
 
 void aibar::setup(object::signature & sig) {
 	hook("collider.collision");
-	cout << "el xibil sin cabelon " << endl;
 }
 
 void aibar::update(float dt) {

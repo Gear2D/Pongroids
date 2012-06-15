@@ -25,13 +25,11 @@ enum asteroidtype {
 };
 
 namespace gear2d {
-	namespace component {
-		template<> asteroidtype base::eval<asteroidtype>(std::string t, asteroidtype def) {
+		template<> asteroidtype eval<asteroidtype>(std::string t, asteroidtype def) {
 			if (t == "big") return big;
 			if (t == "medium") return medium;
 			if (t == "small") return small;
 			return def;
-		}
 	}
 }
 
@@ -43,6 +41,8 @@ class asteroid : public component::base {
 		float timeleft;
 		
 		static int asteroidno;
+		
+		gear2d::link<float> x, y, w, h;
 		
 	private:
 		void explode() {
@@ -88,13 +88,20 @@ class asteroid : public component::base {
 		virtual component::type type() { return "asteroid"; }
 		virtual std::string depends() { return "spatial/space2d collider/collider2d dynamics/rigidbody2d kinematics/kinematic2d renderer/renderer"; }
 		
+		void collide(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
+			component::base * other = read<component::base *>("collider.collision");
+			if (lastwrite == this) return;
+			explode();
+			destroy();
+		}
+		
 		virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
-			if (pid == "collider.collision") {
-				component::base * other = read<component::base *>("collider.collision");
-				if (lastwrite == this) return;
-				explode();
-				destroy();
-			}
+// 			if (pid == "collider.collision") {
+// 				component::base * other = read<component::base *>("collider.collision");
+// 				if (lastwrite == this) return;
+// 				explode();
+// 				destroy();
+// 			}
 		}
 		
 		virtual void setup(object::signature & sig) {
@@ -102,11 +109,15 @@ class asteroid : public component::base {
 			bind("asteroid.fragmentation", frags);
 			t = eval(sig["asteroid.type"], small);
 			frags = eval(sig["asteroid.fragmentation"], 2);
-			hook("collider.collision");
-			int w = rand() % read<int>("renderer.w"); 
-			int h = rand() % read<int>("renderer.h");
-			write<float>("x", w*1.0f);
-			write<float>("y", h*1.0f);
+			hook("collider.collision", (component::call)&asteroid::collide);
+			x = fetch<float>("x");
+			y = fetch<float>("y");
+			w = fetch<float>("w");
+			h = fetch<float>("h");
+			x = rand() % read<int>("renderer.w"); 
+			y = rand() % read<int>("renderer.h");
+// 			write<float>("x", w*1.0f);
+// 			write<float>("y", h*1.0f);
 			if (t == big) {
 				write("roid.alpha", 0.0f);
 				spawning = true;
@@ -120,10 +131,11 @@ class asteroid : public component::base {
 		}
 		
 		virtual void update(float dt) {
-			if (raw<float>("x") + raw<float>("w") < 0) write<float>("x", raw<int>("renderer.w") - raw<float>("w"));
-			else if (raw<float>("x") > raw<int>("renderer.w")) write("x", 0.0f);
-			if (raw<float>("y") + raw<float>("h") < 0) write<float>("y", raw<int>("renderer.h") - raw<float>("h"));
-			else if (raw<float>("y") > raw<int>("renderer.h")) write("y", 0.0f);
+			if (x + w < 0) x = raw<int>("renderer.w") - raw<float>("w");
+			else if (x > raw<int>("renderer.w")) x = 0.0f;
+			if (y + h < 0) y = raw<int>("renderer.h") - raw<float>("h");
+			else if (y > raw<int>("renderer.h")) y = 0.0f;
+// 			cout << "xis: " << x << endl;
 			if (t == big) {
 				if (spawning) {
 					float alpha = read<float>("roid.alpha");

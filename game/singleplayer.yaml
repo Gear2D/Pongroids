@@ -18,4 +18,4 @@ objects: background floor ceil barleft aibarright leftfield rightfield match ast
 
 renderer.w: 640
 renderer.h: 480
-dynamics.nogravity: 1
+# dynamics.nogravity: 1
