@@ -1,7 +1,10 @@
-#include <gear2d/gear2d.h>
+#include "gear2d.h"
 #include <cstdlib>
 #include <cmath>
 
+#ifndef M_PI
+#define M_PI           3.14159265358979323846
+#endif
 
 using namespace gear2d;
 
@@ -70,7 +73,7 @@ class asteroid : public component::base {
 				com->write("y", read<float>("y"));
 				
 				// left or right
-				com->write("y.speed", sinf((i*increment)*M_PI/180.0f)*10.0f + rand() % 20);
+        com->write("y.speed", sinf((i*increment)*M_PI/180.0f)*10.0f + rand() % 20);
 				com->write("x.speed", cosf((i*increment)*M_PI/180.0f)*10.0f + rand() % 20);
 			}
 			
@@ -86,7 +89,7 @@ class asteroid : public component::base {
 		asteroid() : t(none), spawning(false) { }
 		virtual component::family family() { return "asteroid"; }
 		virtual component::type type() { return "asteroid"; }
-		virtual std::string depends() { return "spatial/space2d collider/collider2d dynamics/rigidbody2d kinematics/kinematic2d renderer/renderer"; }
+    virtual std::string depends() { return "spatial/space2d collider/collider2d dynamics/rigidbody2d kinematics/kinematic2d renderer/renderer2"; }
 		
 		void collide(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
 			component::base * other = read<component::base *>("collider.collision");

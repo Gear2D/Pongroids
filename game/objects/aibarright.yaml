@@ -1,5 +1,5 @@
 # attach information
-attach: dynamics/rigidbody2d renderer/renderer controller/charactercontroller audiosource/audiosource bar/aibar
+attach: dynamics/rigidbody2d renderer/renderer2 controller/charactercontroller audiosource/audiosource bar/aibar
 
 # collider things
 collider.tag: bar

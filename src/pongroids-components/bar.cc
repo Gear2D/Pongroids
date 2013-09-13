@@ -5,7 +5,7 @@
  * 
  * Controls the bar behaviours */
 
-#include <gear2d/gear2d.h>
+#include "gear2d.h"
 using namespace gear2d;
 
 class bar : public component::base {

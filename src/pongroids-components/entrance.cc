@@ -1,4 +1,4 @@
-#include <gear2d/gear2d.h>
+#include "gear2d.h"
 #include <stack>
 using namespace gear2d;
 using namespace std;

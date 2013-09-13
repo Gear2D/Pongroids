@@ -1,6 +1,6 @@
 attach: renderer/renderer kinematics/kinematic2d
 renderer.surfaces: background=goingtospace.png
-background.position.z: -2
+background.z: -2
 background.alpha: 0.3
 background.clip.h: 9360
 x: 0

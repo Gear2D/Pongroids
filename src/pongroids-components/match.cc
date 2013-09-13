@@ -7,7 +7,7 @@
  * Controls aspects of the match like score, asteroids on screen,
  * and other code */
 
-#include <gear2d/gear2d.h>
+#include "gear2d.h"
 using namespace gear2d;
 
 #include <cstdio>

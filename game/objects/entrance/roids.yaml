@@ -1,6 +1,6 @@
 # This is the "roids" text
 
-attach: renderer/renderer kinematics/kinematic2d collider/collider2d dynamics/rigidbody2d
+attach: renderer/renderer2 kinematics/kinematic2d collider/collider2d dynamics/rigidbody2d
 
 renderer.texts: roids
 

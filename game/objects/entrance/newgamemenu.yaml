@@ -1,4 +1,4 @@
-attach: spatial/space2d renderer/renderer keyboard/keyboard menu/singleselect
+attach: spatial/space2d renderer/renderer2 keyboard/keyboard menu/singleselect
 
 # spatial things
 x: 350

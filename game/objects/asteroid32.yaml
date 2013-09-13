@@ -1,7 +1,7 @@
 # defines the pong ball
-attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid audiosource/audiosource
+attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer2 asteroid/asteroid audiosource/audiosource
 renderer.surfaces: roid=asteroid32.png
-roid.position.z: 100
+roid.z: 100
 
 # colliding attr
 collider.ignore: asteroid wall limit rightfield leftfield

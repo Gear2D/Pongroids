@@ -1,7 +1,7 @@
 # defines the pong ball
-attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer asteroid/asteroid
+attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer2 asteroid/asteroid
 renderer.surfaces: roid=asteroid16.png
-roid.position.z: 10
+roid.z: 10
 roid.alpha: 0.5
 
 # colliding attr

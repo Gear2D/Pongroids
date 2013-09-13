@@ -1,5 +1,5 @@
 # defines the pong ball
-attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer animation/spritesheet controller/moveto
+attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer2 animation/spritesheet controller/moveto
 renderer.surfaces: roid=circleroid.bmp
 
 roid.position.z: 10
