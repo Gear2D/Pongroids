@@ -65,8 +65,8 @@ class entrance : public component::base  {
 			if (pid == "menu.focus") {
 				menufocus->write(menufocus->read<string>("menu.last") + ".alpha", 0.5f);
 				menufocus->write(menufocus->read<string>("menu.focus") + ".alpha", 1.0f);
-				cout << "menu.last " << menufocus->read<string>("menu.last") << endl;
-				cout << "menu.focus " << menufocus->read<string>("menu.focus") << endl;
+//				cout << "menu.last " << menufocus->read<string>("menu.last") << endl;
+//				cout << "menu.focus " << menufocus->read<string>("menu.focus") << endl;
 			}
 		}
 		

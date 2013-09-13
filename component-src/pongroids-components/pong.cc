@@ -18,7 +18,7 @@ class pong : public component::base {
 			if (pid == "collider.collision") {
 				component::base * c = read<component::base*>(pid);
 				if (c->read<string>("collider.tag") == "bar") {
-					cout << read<float>("collider.collision.speed.x") << endl;
+//					cout << read<float>("collider.collision.speed.x") << endl;
 					add("x.speed", 2.0f);
 					add("y.speed", read<float>("collider.collision.speed.y")*0.5f);
 				}
