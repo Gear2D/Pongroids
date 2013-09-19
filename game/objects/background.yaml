@@ -1,4 +1,4 @@
-attach: renderer/renderer kinematics/kinematic2d
+attach: renderer/renderer2 kinematics/kinematic2d
 renderer.surfaces: background=goingtospace.png
 background.z: -2
 background.alpha: 0.3

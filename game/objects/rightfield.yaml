@@ -1,4 +1,4 @@
-attach: dynamics/rigidbody2d renderer/renderer
+attach: dynamics/rigidbody2d renderer/renderer2
 
 renderer.surfaces: rightfield=rightfield.bmp
 rightfield.alpha: 0.2

@@ -24,15 +24,7 @@ compreload: dynamics/rigidbody2d
             renderer/renderer2
 
 # initial objects
-objects: background
-         floor
-         ceil
-         barleft
-         barright
-         leftfield
-         rightfield
-         match
-         asteroid32
+objects: background barleft
 
 renderer:
   w: 640
