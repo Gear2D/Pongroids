@@ -24,7 +24,7 @@ compreload: dynamics/rigidbody2d
             renderer/renderer2
 
 # initial objects
-objects: background barleft
+objects: background barleft barright asteroid32
 
 renderer:
   w: 640

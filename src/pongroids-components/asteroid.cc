@@ -108,6 +108,8 @@ class asteroid : public component::base {
     }
 
     virtual void setup(object::signature & sig) {
+      modinfo("asteroid");
+      trace("Initializing asteroid!");
       bind("asteroid.type", t);
       bind("asteroid.fragmentation", frags);
       t = eval(sig["asteroid.type"], small);
@@ -117,6 +119,8 @@ class asteroid : public component::base {
       y = fetch<float>("y");
       w = fetch<float>("w");
       h = fetch<float>("h");
+      trace("Asteroid on", x, y, w, h);
+      
       x = rand() % read<int>("renderer.w");
       y = rand() % read<int>("renderer.h");
 // 			write<float>("x", w*1.0f);
@@ -134,6 +138,8 @@ class asteroid : public component::base {
     }
 
     virtual void update(float dt) {
+      //modinfo("asteroid");
+      //trace("Asteroid on", x, y, w, h);
       if (x + w < 0) x = raw<int>("renderer.w") - raw<float>("w");
       else if (x > raw<int>("renderer.w")) x = 0.0f;
       if (y + h < 0) y = raw<int>("renderer.h") - raw<float>("h");
