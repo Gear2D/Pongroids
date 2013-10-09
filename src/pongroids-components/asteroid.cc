@@ -28,7 +28,7 @@ enum asteroidtype {
 };
 
 namespace gear2d {
-  template<> asteroidtype eval<asteroidtype>(std::string t, asteroidtype def) {
+  template<> asteroidtype eval<asteroidtype>(const std::string & t, const asteroidtype & def) {
     if (t == "big") return big;
     if (t == "medium") return medium;
     if (t == "small") return small;
@@ -54,13 +54,17 @@ class asteroid : public component::base {
       else if (t == medium) target = "asteroid8";
       else return;
 
+      modinfo("asteroid");
+
       const int & side = raw<int>("collider.collision.side");
+      const float & colspeedx = raw<float>("collider.collision.speed.x");
+      const float & colspeedy = raw<float>("collider.collision.speed.y");
 
       object::id obj;
       asteroid * com;
       const float & xspeed = raw<float>("x.speed");
       const float & yspeed = raw<float>("y.speed");
-      float increment = 360.0f / frags;
+      float increment = 60.0f / frags;
 
       for (int i = 0; i < frags; i++) {
         if (asteroidno >= 60) break;
@@ -73,8 +77,9 @@ class asteroid : public component::base {
         com->write("y", read<float>("y"));
 
         // left or right
-        com->write("y.speed", sinf((i * increment)*M_PI / 180.0f) * 10.0f + rand() % 20);
-        com->write("x.speed", cosf((i * increment)*M_PI / 180.0f) * 10.0f + rand() % 20);
+        trace("colspeedx and y",  colspeedx,  colspeedy, side);
+        com->write("y.speed", sinf((i * increment)*M_PI / 180.0f) * colspeedy + rand() % 20);
+        com->write("x.speed", cosf((i * increment)*M_PI / 180.0f) * colspeedx + rand() % 20);
       }
 
       if (t == big) {
@@ -109,7 +114,6 @@ class asteroid : public component::base {
 
     virtual void setup(object::signature & sig) {
       modinfo("asteroid");
-      trace("Initializing asteroid!");
       bind("asteroid.type", t);
       bind("asteroid.fragmentation", frags);
       t = eval(sig["asteroid.type"], small);
@@ -119,7 +123,6 @@ class asteroid : public component::base {
       y = fetch<float>("y");
       w = fetch<float>("w");
       h = fetch<float>("h");
-      trace("Asteroid on", x, y, w, h);
       
       x = rand() % read<int>("renderer.w");
       y = rand() % read<int>("renderer.h");
