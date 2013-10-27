@@ -90,6 +90,4 @@ class entrance : public component::base  {
 		}
 };
 
-extern "C" {
-	component::base * build() { return new entrance; }
-}
+g2dcomponent(entrance, entrance, entrance);

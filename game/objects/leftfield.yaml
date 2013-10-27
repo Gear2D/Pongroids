@@ -10,5 +10,6 @@ w: 8
 h: 480
 
 collider.tag: leftfield
+collider.ignore: pong
 dynamics.kinematic: 1
 dynamics.mass: 99999

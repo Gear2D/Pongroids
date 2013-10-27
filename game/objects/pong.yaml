@@ -2,6 +2,7 @@
 attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/renderer2 pong/pong
 renderer.surfaces: pong=pong.bmp grid=grid.png
 collider.ignore: rightfield leftfield
+collider.tag: pong
 
 
 
@@ -19,8 +20,8 @@ grid.z: -1
 pong.z: 10
 
 # test speed (kinematics)
-x.speed: 200
-y.speed: 100
+#x.speed: 200
+#y.speed: 100
 x.speed.max: 200
 y.speed.max: 300
 

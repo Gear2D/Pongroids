@@ -97,6 +97,4 @@ class match : public component::base {
 		}
 };
 
-extern "C" {
-	component::base * build() { return new match; }
-}
+g2dcomponent(match, match, match);

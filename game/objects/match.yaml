@@ -1,5 +1,5 @@
 # match: Rules for the game
-attach: renderer/renderer2 audiosource/audiosource match/match 
+attach: renderer/renderer2 match/match 
 audiosource.music: Edward_Shallow_-_01_-_Inside_Leaving.ogg
 
 #texts

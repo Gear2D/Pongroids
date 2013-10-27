@@ -40,6 +40,4 @@ void bar::update(float dt) {
 }
 
 
-extern "C" {
-	component::base * build() { return new bar(); }
-}
+g2dcomponent(bar, bar, bar);

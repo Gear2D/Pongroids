@@ -75,6 +75,4 @@ void aibar::update(float dt) {
 }
 
 
-extern "C" {
-	component::base * build() { return new aibar(); }
-}
+g2dcomponent(aibar, bar, aibar)

@@ -172,6 +172,4 @@ class asteroid : public component::base {
 
 int asteroid::asteroidno = 0;
 
-extern "C" {
-  component::base * build() { return new asteroid; }
-}
+g2dcomponent(asteroid, asteroid, asteroid)
