@@ -37,3 +37,4 @@ objects: background
 renderer:
   w: 640
   h: 480
+  fullscreen: true

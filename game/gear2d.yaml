@@ -17,10 +17,10 @@ muspath: mus/
 
 # separated by space
 compreload: dynamics/rigidbody2d
-			collider/collider2d
-			spatial/space2d
-			kinematics/kinematic2d
-			keyboard/keyboard
+            collider/collider2d
+            spatial/space2d
+            kinematics/kinematic2d
+            keyboard/keyboard
 
 # initial objects
 # objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
@@ -36,7 +36,7 @@ objects: background
          entrance/roids
 
 renderer:
-	w: 640
-	h: 480
+w: 640
+h: 480
 
 dynamics.nogravity: 1
