@@ -15,7 +15,7 @@ using namespace gear2d;
  *
  * @b parameters
  * @li @c asteroid.type Size of this asteroid (big, medium, small). @b string
- * 	When hit, one big asteroid will split into medium. One medium into
+ *  When hit, one big asteroid will split into medium. One medium into
  *  small, and small will be destroyed.
  * @li @c asteroid.fragmentation How many smaller asteroids this asteroid should be split @b int
  */
@@ -85,8 +85,8 @@ class asteroid : public component::base {
       if (t == big) {
         object::id otherbig = spawn(owner->name());
         write("explode.playing", true);
-// 				otherbig->component("asteroid")->write<float>("x", -31);
-// 				otherbig->component("asteroid")->write<float>("y.speed", 10.0f);
+//        otherbig->component("asteroid")->write<float>("x", -31);
+//        otherbig->component("asteroid")->write<float>("y.speed", 10.0f);
       }
     }
 
@@ -104,12 +104,12 @@ class asteroid : public component::base {
     }
 
     virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
-// 			if (pid == "collider.collision") {
-// 				component::base * other = read<component::base *>("collider.collision");
-// 				if (lastwrite == this) return;
-// 				explode();
-// 				destroy();
-// 			}
+//      if (pid == "collider.collision") {
+//        component::base * other = read<component::base *>("collider.collision");
+//        if (lastwrite == this) return;
+//        explode();
+//        destroy();
+//      }
     }
 
     virtual void setup(object::signature & sig) {
@@ -123,11 +123,11 @@ class asteroid : public component::base {
       y = fetch<float>("y");
       w = fetch<float>("w");
       h = fetch<float>("h");
-      
+
       x = rand() % read<int>("renderer.w");
       y = rand() % read<int>("renderer.h");
-// 			write<float>("x", w*1.0f);
-// 			write<float>("y", h*1.0f);
+//      write<float>("x", w*1.0f);
+//      write<float>("y", h*1.0f);
       if (t == big) {
         write("roid.alpha", 0.0f);
         spawning = true;
@@ -147,7 +147,7 @@ class asteroid : public component::base {
       else if (x > raw<int>("renderer.w")) x = 0.0f;
       if (y + h < 0) y = raw<int>("renderer.h") - raw<float>("h");
       else if (y > raw<int>("renderer.h")) y = 0.0f;
-// 			cout << "xis: " << x << endl;
+//      cout << "xis: " << x << endl;
       if (t == big) {
         if (spawning) {
           float alpha = read<float>("roid.alpha");

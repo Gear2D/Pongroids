@@ -1,6 +1,0 @@
-gear2d_component(pong pong pong.cc)
-gear2d_component(bar bar bar.cc)
-gear2d_component(bar aibar aibar.cc)
-gear2d_component(match match match.cc)
-gear2d_component(entrance entrance entrance.cc)
-gear2d_component(asteroid asteroid asteroid.cc)

@@ -1,1 +1,8 @@
-add_subdirectory(pongroids-components)
+project(Pongroids)
+
+g2dcomponent(FAMILY pong      TYPE pong     SOURCES pong.cc)
+g2dcomponent(FAMILY bar       TYPE bar      SOURCES bar.cc)
+g2dcomponent(FAMILY bar       TYPE aibar    SOURCES aibar.cc)
+g2dcomponent(FAMILY match     TYPE match    SOURCES match.cc)
+g2dcomponent(FAMILY entrance  TYPE entrance SOURCES entrance.cc)
+g2dcomponent(FAMILY asteroid  TYPE asteroid SOURCES asteroid.cc)
