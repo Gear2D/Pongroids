@@ -1,6 +1,9 @@
 # This is the "pong" text
 
-attach: renderer/renderer2 kinematics/kinematic2d collider/collider2d dynamics/rigidbody2d
+attach: renderer/renderer2
+        kinematics/kinematic2d
+        collider/collider2d
+        dynamics/rigidbody2d
 
 renderer.texts: pong
 
@@ -8,13 +11,22 @@ x: 100
 y: 50
 w: 200
 h: 60
-x.speed: 10
+x.speed:
+  value: 10
+  max: 100
+  
+y.speed:
+  value: 0
+  max: 100
 
-pong.text: Pong
-pong.font.r: 0.19
-pong.font.g: 0.58
-pong.font.b: 0.72
-pong.font: origa___.ttf
-pong.font.size: 60
-pong.z: 100
-pong.alpha: 0.5
+pong:
+  text: Pong
+  color:
+    r: 0.19
+    g: 0.58
+    b: 0.72
+  font: 
+    face: origa___.ttf
+    size: 60
+  z: 100
+  alpha: 0.5

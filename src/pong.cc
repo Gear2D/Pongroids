@@ -6,12 +6,17 @@ using namespace gear2d;
 
 
 class pong : public component::base {
+  private:
+    link<int> rendererw;
+    link<int> rendererh;
   public:
     virtual component::family family() { return "pong"; }
     virtual component::type type() { return "pong"; }
-    virtual string depends() { return "spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d"; }
+    virtual string depends() { return "renderer/renderer2 spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d"; }
     virtual void setup(object::signature & sig) {
       hook("collider.collision");
+      rendererw = fetch<int>("renderer.w");
+      rendererh = fetch<int>("renderer.h");
     }
 
     virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id owns) {
@@ -25,8 +30,8 @@ class pong : public component::base {
     }
 
     virtual void update(float dt) {
-      write("grid.x", raw<float>("x") / 10.0f - 640);
-      write("grid.y", raw<float>("y") / 10.0f - 480);
+      write("grid.x", raw<float>("x") / 10.0f - rendererw);
+      write("grid.y", raw<float>("y") / 10.0f - rendererh);
       add("x.speed",  raw<float>("x.speed") < 0 ? -dt : dt);
     }
 

@@ -36,7 +36,8 @@ objects: background
          entrance/roids
 
 renderer:
-w: 640
-h: 480
+  w: 592
+  h: 394
+  fullscreen: true
 
 dynamics.nogravity: 1

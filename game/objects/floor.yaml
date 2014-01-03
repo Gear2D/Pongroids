@@ -1,8 +1,8 @@
 # Defines the floor
 attach: dynamics/rigidbody2d
 x: 0
-y: 480
-w: 640
+y: $renderer.h
+w: $renderer.w
 h: 32
 dynamics.kinematic: 1
 dynamics.mass: 9990

@@ -3,6 +3,7 @@
 using namespace gear2d;
 using namespace std;
 
+
 class entrance : public component::base  {
   private:
     component::base * mainmenu;

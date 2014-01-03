@@ -1,4 +1,7 @@
-attach: renderer/renderer2 keyboard/keyboard audiosource/audiosource entrance/entrance
+attach: renderer/renderer2
+        keyboard/keyboard
+        audiosource/audiosource
+        entrance/entrance
 
 # music things
 # audiosource.music: theme.mp3

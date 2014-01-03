@@ -1,9 +1,9 @@
 # Defines the floor
 attach: dynamics/rigidbody2d
-x: 640
+x: $renderer.w
 y: 0
 w: 32
-h: 480
+h: $renderer.h
 dynamics.kinematic: 1
 dynamics.mass: 9990
 collider.tag: limit

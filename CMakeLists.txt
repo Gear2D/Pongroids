@@ -12,7 +12,13 @@ include_directories(${Gear2D_INCLUDE_DIR})
 add_definitions(-std=c++11)
 
 # Change this to suit your root game folder
-set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/game)
+set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/components)
+set(Gear2D_COMPONENT_PREFIX ${CMAKE_INSTALL_PREFIX}/components)
+
+# Identify the build type
+if (NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE "Debug")
+endif (NOT CMAKE_BUILD_TYPE)
 
 # Identify if logtrace should be defined
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug" OR ${CMAKE_BUILD_TYPE} STREQUAL "RelWithDebInfo")

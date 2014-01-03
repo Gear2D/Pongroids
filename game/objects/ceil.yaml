@@ -2,7 +2,7 @@
 attach: dynamics/rigidbody2d
 x: 0
 y: -32
-w: 640
+w: $renderer.w
 h: 32
 dynamics.kinematic: 1
 dynamics.mass: 9990

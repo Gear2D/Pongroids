@@ -8,13 +8,22 @@ x: 310
 y: 50
 w: 250
 h: 60
-x.speed: -10
+x.speed:
+  value: -10
+  max: 100
+  
+y.speed:
+  value: 0
+  max: 100
 
-roids.text: Roids
-roids.font.r: 0.58
-roids.font.g: 0.72
-roids.font.b: 0.19
-roids.font: origa___.ttf
-roids.font.size: 60
-roids.position.z: 100
-roids.alpha: 0.5
+roids:
+  text: Roids
+  color:
+    r: 0.58
+    g: 0.72
+    b: 0.19
+  font:
+    face: origa___.ttf
+    size: 60
+  z: 100
+  alpha: 0.5

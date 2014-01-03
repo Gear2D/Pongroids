@@ -3,7 +3,7 @@ attach: dynamics/rigidbody2d
 x: -32
 y: 0
 w: 32
-h: 480
+h: $renderer.h
 dynamics.kinematic: 1
 dynamics.mass: 9990
 collider.tag: limit
