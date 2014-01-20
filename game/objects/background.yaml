@@ -3,6 +3,6 @@ renderer.surfaces: background=goingtospace.png
 background.z: -2
 background.alpha: 0.3
 background.clip.h: 9360
+background.w: $renderer.w
 x: 0
 y.speed: -30.0
-# y: 8880

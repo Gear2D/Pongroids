@@ -24,20 +24,19 @@ compreload: dynamics/rigidbody2d
 
 # initial objects
 # objects: background floor ceil barleft barright asteroid32 leftfield rightfield match
-objects: background
-         ceil
+objects: ceil
          floor
          left
          right
          pong
-         asteroid32 asteroid32
-         entrance
+         asteroid32
+         asteroid32
          entrance/pong
          entrance/roids
+         entrance/mainmenu
 
 renderer:
-  w: 592
-  h: 394
-  fullscreen: true
-
+  w: 1920
+  h: 1080
+  
 dynamics.nogravity: 1

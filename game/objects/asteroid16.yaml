@@ -3,6 +3,8 @@ attach: spatial/space2d kinematics/kinematic2d dynamics/rigidbody2d renderer/ren
 renderer.surfaces: roid=asteroid16.png
 roid.z: 10
 roid.alpha: 0.5
+roid.w: $w
+roid.h: $h
 
 # colliding attr
 collider.ignore: asteroid wall limit rightfield leftfield
@@ -11,8 +13,8 @@ collider.tag: asteroid
 # spatial parameters
 x: 0
 y: 0
-w: 16
-h: 16
+w: 44
+h: 44
 
 x.speed: 0
 y.speed: 0

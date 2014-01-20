@@ -9,8 +9,12 @@ collider.tag: pong
 # spatial parameters
 x: 140
 y: 236
-w: 8
-h: 8
+w: 22
+h: 22
+
+pong:
+  w: $w
+  h: $h
 
 grid.bind: 0
 grid.x: -200
@@ -19,13 +23,8 @@ grid.z: -1
 
 pong.z: 10
 
-# test speed (kinematics)
-#x.speed: 200
-#y.speed: 100
-x.speed.max: 200
-y.speed.max: 300
+x.speed.max: 500
+y.speed.max: 600
 
 # test mass (dynamics)
 dynamics.mass: 1
-
-

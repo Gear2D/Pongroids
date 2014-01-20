@@ -2,11 +2,14 @@ attach: dynamics/rigidbody2d renderer/renderer2
 
 renderer.surfaces: rightfield=rightfield.bmp
 rightfield.alpha: 0.2
+rightfield:
+  h: $renderer.h
+  w: 22
 
-x: 320
+x: 960
 y: 0
-w: 8
-h: 480
+w: 22
+h: $renderer.h
 
 collider.tag: rightfield
 collider.ignore: pong

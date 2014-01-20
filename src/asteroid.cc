@@ -44,17 +44,27 @@ class asteroid : public component::base {
     float timeleft;
 
     static int asteroidno;
-
+    static int usedasteroids;
+    
+    
+    // keep a list of available asteroids
+    static std::set<gear2d::object::id> free8;
+    static std::set<gear2d::object::id> free16;
+    
     gear2d::link<float> x, y, w, h;
+    gear2d::link<bool> active;
 
   private:
     void explode() {
+      modinfo("asteroid");
+      trace("Asteroid size", (t-3) * -1, "exploding!");
       std::string target;
       if (t == big) target = "asteroid16";
       else if (t == medium) target = "asteroid8";
-      else return;
-
-      modinfo("asteroid");
+      else {
+        reset();
+        return;
+      }
 
       const int & side = raw<int>("collider.collision.side");
       const float & colspeedx = raw<float>("collider.collision.speed.x");
@@ -67,8 +77,25 @@ class asteroid : public component::base {
       float increment = 60.0f / frags;
 
       for (int i = 0; i < frags; i++) {
-        if (asteroidno >= 60) break;
-        obj = spawn(target);
+        // set other asteroids rolling
+        if (t == big) {
+          if (free16.empty()) {
+            trace("Big asteroid need to spawn medium ones. Why?");
+            spawn(target);
+          }
+          
+          trace("Got an free asteroid! Yay!");
+          obj = *free16.begin();
+          free16.erase(free16.begin());
+        } else {
+          if (free8.empty()) {
+            trace("Medium asteroid need to spawn small ones. Why?");
+            obj = spawn(target);
+          } 
+          obj = *free8.begin();
+          free8.erase(free8.begin());
+        }
+        
         com = (asteroid *) obj->component("asteroid");
         if (com == 0) continue;
 
@@ -80,13 +107,11 @@ class asteroid : public component::base {
         trace("colspeedx and y",  colspeedx,  colspeedy, side);
         com->write("y.speed", sinf((i * increment)*M_PI / 180.0f) * colspeedy + rand() % 20);
         com->write("x.speed", cosf((i * increment)*M_PI / 180.0f) * colspeedx + rand() % 20);
+        com->active = true;
       }
 
       if (t == big) {
-        object::id otherbig = spawn(owner->name());
         write("explode.playing", true);
-//        otherbig->component("asteroid")->write<float>("x", -31);
-//        otherbig->component("asteroid")->write<float>("y.speed", 10.0f);
       }
     }
 
@@ -100,54 +125,90 @@ class asteroid : public component::base {
       component::base * other = read<component::base *>("collider.collision");
       if (lastwrite == this) return;
       explode();
-      destroy();
+      reset();
     }
 
-    virtual void handle(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
-//      if (pid == "collider.collision") {
-//        component::base * other = read<component::base *>("collider.collision");
-//        if (lastwrite == this) return;
-//        explode();
-//        destroy();
-//      }
+    virtual void activechanged(parameterbase::id pid, component::base * lastwrite, object::id pidowner) {
+      if (active) usedasteroids++;
+      else usedasteroids--;
+      if (usedasteroids < 0) usedasteroids = 0;
+      modinfo("asteroid");
+      static int max = 0;
+      if (usedasteroids > max) max = usedasteroids;
+      trace(free16.size(), "\t", free8.size(), "\t", asteroidno);
+      write("roid.render", active);
+      write("collider.active", active);
+      write("kinematics.active", active);
+      write("dynamics.active", active);
     }
 
     virtual void setup(object::signature & sig) {
       modinfo("asteroid");
+      t = eval(sig["asteroid.type"], small);
+      active = fetch<bool>("asteroid.active", t == big);
+      //write("roid.render", active);
+      write("collider.active", active);
+      hook("asteroid.active", (component::call) &asteroid::activechanged);
       bind("asteroid.type", t);
       bind("asteroid.fragmentation", frags);
-      t = eval(sig["asteroid.type"], small);
-      frags = eval(sig["asteroid.fragmentation"], 2);
+      frags = eval(sig["asteroid.fragmentation"], 0);
+      
+      // spawn predicted frags
+      std::string target = (t == big) ? "asteroid16" : "asteroid8";
+      for (int i = 0; i < frags; i++) {
+        spawn(target);
+        if (t == big)  {
+          spawn(target);
+          spawn(target);
+        }
+      }
+      
       hook("collider.collision", (component::call)&asteroid::collide);
       x = fetch<float>("x");
       y = fetch<float>("y");
       w = fetch<float>("w");
       h = fetch<float>("h");
 
-      x = rand() % read<int>("renderer.w");
-      y = rand() % read<int>("renderer.h");
-//      write<float>("x", w*1.0f);
-//      write<float>("y", h*1.0f);
-      if (t == big) {
-        write("roid.alpha", 0.0f);
-        spawning = true;
-        write("x.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
-        write("y.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
-      }
-      if (t == small) {
-        timeleft = 5.0f;
-      }
+      reset();
+      
       asteroidno++;
+      if (t ==  big) trace("total asteroids by now: ", asteroidno);
     }
 
+    // reset this asteroid: put it back on the empty list.
+    void reset() {
+      modinfo("asteroid");
+      switch (t) {
+        case small:
+          timeleft = 5.0f;
+          free8.insert(owner);
+          active = false;
+          trace("Resetting a small asteroid", free8.size());
+          break;
+        case medium:
+          active = false;
+          free16.insert(owner);
+          trace("Resetting a medium asteroid", free16.size());
+          break;
+        case big:
+          trace("Resetting a big asteroid!");
+          x = rand() % read<int>("renderer.w");
+          y = rand() % read<int>("renderer.h");
+          write("roid.alpha", 0.0f);
+          spawning = true;
+          write("x.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
+          write("y.speed", (rand() % 2) == 0 ? -10.0f : 10.0f);
+        default:
+          break;
+      }
+    }
+    
     virtual void update(float dt) {
-      //modinfo("asteroid");
-      //trace("Asteroid on", x, y, w, h);
+      if (!active) return;
       if (x + w < 0) x = raw<int>("renderer.w") - raw<float>("w");
       else if (x > raw<int>("renderer.w")) x = 0.0f;
       if (y + h < 0) y = raw<int>("renderer.h") - raw<float>("h");
       else if (y > raw<int>("renderer.h")) y = 0.0f;
-//      cout << "xis: " << x << endl;
       if (t == big) {
         if (spawning) {
           float alpha = read<float>("roid.alpha");
@@ -156,12 +217,12 @@ class asteroid : public component::base {
           if (alpha >= 1.0f) spawning = false;
           write("roid.alpha", alpha);
         }
-      }
-      if (t == small) {
+      } else if (t == small) {
         timeleft -= dt;
         clamp(timeleft, 0.0f, 5.0f);
         write("roid.alpha", timeleft / 5.0f);
-        if (timeleft <= 0.0f) destroy();
+        if (timeleft <= 0.0f) reset();
+      } else {
       }
     }
 
@@ -171,5 +232,8 @@ class asteroid : public component::base {
 };
 
 int asteroid::asteroidno = 0;
+int asteroid::usedasteroids = 0;
+std::set<object::id> asteroid::free8;
+std::set<object::id> asteroid::free16;
 
 g2dcomponent(asteroid, asteroid, asteroid)

@@ -25,14 +25,16 @@ compreload: dynamics/rigidbody2d
 
 # initial objects
 objects: background
+         match
          barleft
          barright
          leftfield
          rightfield
-         pong
+         floor
+         ceil
 
 renderer:
-  w: 640
-  h: 480
+  w: 1920
+  h: 1080
 
 dynamics.nogravity: 1

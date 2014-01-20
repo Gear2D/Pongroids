@@ -8,29 +8,32 @@ collider.ignore: asteroid rightfield
 # surfaces to render
 renderer.surfaces: bar=barright.bmp
 bar.alpha: 1.0
+bar:
+  w: $w
+  h: $h
 
 # controller things
 controller.vertical+: down
 controller.vertical-: up
 controller.horizontal+: right
 controller.horizontal-: left
-controller.horizontal.accel: 1000
-controller.vertical.accel: 1000
-controller.vertical.deaccel: 300
-controller.horizontal.deaccel: 300
+controller.horizontal.accel: 2000
+controller.vertical.accel: 2000
+controller.vertical.deaccel: 600
+controller.horizontal.deaccel: 600
 
 # audio things
 audiosource.sounds: blip=ping.wav
 
 # spatial things
-x: 632
-y: 208
-w: 8
-h: 64
+x: 1898
+y: 468
+w: 22
+h: 144
 
 # dynamics things
 dynamics.mass: 10
 
 # kinematic things
-x.speed.max: 200
-y.speed.max: 200
+x.speed.max: 500
+y.speed.max: 500

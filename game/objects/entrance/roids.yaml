@@ -4,17 +4,17 @@ attach: renderer/renderer2 kinematics/kinematic2d collider/collider2d dynamics/r
 
 renderer.texts: roids
 
-x: 310
+x: 680
 y: 50
-w: 250
-h: 60
+w: 675
+h: 160
 x.speed:
-  value: -10
-  max: 100
+  value: -30
+  max: 300
   
 y.speed:
   value: 0
-  max: 100
+  max: 300
 
 roids:
   text: Roids
@@ -24,6 +24,6 @@ roids:
     b: 0.19
   font:
     face: origa___.ttf
-    size: 60
+    size: 160
   z: 100
   alpha: 0.5

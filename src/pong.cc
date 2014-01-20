@@ -7,8 +7,8 @@ using namespace gear2d;
 
 class pong : public component::base {
   private:
-    link<int> rendererw;
-    link<int> rendererh;
+    gear2d::link<int> rendererw;
+    gear2d::link<int> rendererh;
   public:
     virtual component::family family() { return "pong"; }
     virtual component::type type() { return "pong"; }

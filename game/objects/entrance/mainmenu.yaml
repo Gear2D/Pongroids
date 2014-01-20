@@ -1,37 +1,55 @@
-attach: spatial/space2d renderer/renderer2 kinematics/kinematic2d menu/singleselect
+attach: spatial/space2d renderer/renderer2 kinematics/kinematic2d menu/mouseover
 
 # spatial things
-x: 350
-y: 380
-z: 100;
+x: 1500
+y: 800
+z: 100
 
-renderer.texts: newgame exitgame
+renderer.texts: singleplayer versus exitgame
 
 # menu things
-menu.options: newgame exitgame
-menu.focus: newgame
+menu.options: singleplayer versus exitgame
+menu.focus: singleplayer
 menu.circular: 1
 
-newgame.order: 0
-newgame.text: New Game
-newgame.font.r: 1
-newgame.font.g: 1
-newgame.font.b: 1
-newgame.font: origa___.ttf
-newgame.font.size: 18
-newgame.position.x: 0
-newgame.position.y: 0
-newgame.alpha: 0.5
+singleplayer:
+  order: 0
+  text: Defeat the robot
+  x: 0
+  y: 0
+  color:
+    r: 1
+    g: 1
+    b: 1
+  font:
+    face: origa___.ttf
+    size: 50
+  alpha: 0.5
 
-
-exitgame.order: 1
-exitgame.text: Exit Game
-exitgame.font.r: 1
-exitgame.font.g: 1
-exitgame.font.b: 1
-exitgame.font: origa___.ttf
-exitgame.font.size: 18
-exitgame.position.x: 0
-exitgame.position.y: 30
-exitgame.position.z: 100
-exitgame.alpha: 0.5
+versus:
+  order: 1
+  text: Defeat the other
+  x: 0
+  y: 60
+  color:
+    r: 1
+    g: 1
+    b: 1
+  font:
+    face: origa___.ttf
+    size: 50
+  alpha: 0.5
+  
+exitgame:
+  order: 2
+  text: Exit Game
+  color:
+    r: 1
+    g: 0.5
+    b: 0.5
+  font:
+    face: origa___.ttf
+    size: 50
+  x: 0
+  y: 120
+  alpha: 0.5
