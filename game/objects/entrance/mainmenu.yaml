@@ -1,11 +1,24 @@
-attach: spatial/space2d renderer/renderer2 kinematics/kinematic2d menu/mouseover
+attach: spatial/space2d renderer/renderer2 kinematics/kinematic2d menu/mouseover controller/mainmenu
 
 # spatial things
-x: 1500
+x: 1000
 y: 800
 z: 100
 
-renderer.texts: singleplayer versus exitgame
+renderer.texts: mousedbg
+
+mousedbg:
+  text: "0 0"
+  x: 0
+  y: 0
+  color:
+    r: 1.0
+    g: 0.0
+    b: 0.0
+  font:
+    face: origa___.ttf
+    size: 40
+  bind: 0
 
 # menu things
 menu.options: singleplayer versus exitgame
@@ -14,7 +27,7 @@ menu.circular: 1
 
 singleplayer:
   order: 0
-  text: Defeat the robot
+  text: Defeat the robots
   x: 0
   y: 0
   color:
@@ -28,7 +41,7 @@ singleplayer:
 
 versus:
   order: 1
-  text: Defeat the other
+  text: Defeat the humans
   x: 0
   y: 60
   color:
@@ -41,7 +54,6 @@ versus:
   alpha: 0.5
   
 exitgame:
-  order: 2
   text: Exit Game
   color:
     r: 1

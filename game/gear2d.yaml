@@ -28,11 +28,6 @@ objects: ceil
          floor
          left
          right
-         pong
-         asteroid32
-         asteroid32
-         entrance/pong
-         entrance/roids
          entrance/mainmenu
 
 renderer:

@@ -1,4 +1,5 @@
 #include "gear2d.h"
+#include "log.h"
 #include <string>
 using namespace gear2d;
 
@@ -8,7 +9,7 @@ class menumouseover : public component::base {
     virtual void update(gear2d::timediff dt);
     virtual gear2d::component::family family() { return "menu"; }
     virtual gear2d::component::type type() { return "mouseover"; }
-    virtual std::string depends() { return "mouse/mouse"; }
+    virtual std::string depends() { return "mouse/mouse spatial/space2d renderer/renderer2"; }
     virtual void optionschanged(parameterbase::id pid, base * lastwrite, object::id owner);
     virtual void orderchanged(parameterbase::id pid, base * lastwrite, object::id owner);
     
@@ -63,6 +64,9 @@ void menumouseover::setoptions() {
     o->y = sp.init<float>(opt + ".y");
     o->w = sp.init<int>(opt + ".w");
     o->h = sp.init<int>(opt + ".h");
+    x = fetch<float>("x");
+    y = fetch<float>("y");
+    
     options.push_back(o);
   }
   
@@ -74,21 +78,26 @@ void menumouseover::setup(gear2d::object::signature & sig) {
   menuoptions = sp.init("menu.options");
   hook("menu.options", (component::call) &menumouseover::optionschanged);
   mousex = sp.init("mouse.x", 0);
-  mousex = sp.init("mouse.y", 0);
+  mousey = sp.init("mouse.y", 0);
   mouse1 = sp.init("mouse.1", 0);
   setoptions();
 }
 
 void menumouseover::update(timediff dt) {
+  modinfo("menumouseover");
   for (menuopt * opt : options) {
+    trace("Testing for", opt->id, mousex, opt->x + x);
     if (mousex > opt->x + x &&
         mousex < opt->x + x + opt->w &&
         mousey > opt->y + y &&
         mousey < opt->y + y + opt->h)
     {
+      trace("We got a winner!", opt->id);
       if (!opt->hover) opt->hover = true;
       if (mouse1 == 1)
         if (!opt->selected) opt->selected = true;
+    } else {
+      if (opt->hover) opt->hover = false;
     }
   }
 }
